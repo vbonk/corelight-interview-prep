@@ -18,7 +18,16 @@ import {
   Globe,
   Award,
   BookOpen,
-  MessageSquare
+  MessageSquare,
+  BarChart3,
+  Star,
+  Lightbulb,
+  MapPin,
+  Clock,
+  DollarSign,
+  Briefcase,
+  ChevronRight,
+  ExternalLink
 } from 'lucide-react'
 import './App.css'
 
@@ -30,14 +39,19 @@ function App() {
     { id: 'company', label: 'Company Research', icon: Building2 },
     { id: 'technical', label: 'Technical Knowledge', icon: Cpu },
     { id: 'competitive', label: 'Competitive Analysis', icon: Target },
+    { id: 'casestudies', label: 'Case Studies', icon: BarChart3 },
+    { id: 'customers', label: 'Customer Base', icon: Users },
+    { id: 'strategic', label: 'Strategic Q&A', icon: Lightbulb },
     { id: 'interview', label: 'Interview Guide', icon: MessageSquare },
   ]
 
   const keyStats = [
     { label: 'Market Valuation', value: '$900M', icon: TrendingUp },
     { label: 'Customer Satisfaction', value: '98%', icon: Award },
-    { label: 'Market Growth (CAGR)', value: '16.5%', icon: TrendingUp },
+    { label: 'Gartner Leader', value: '2025', icon: Star },
     { label: 'Performance Scale', value: '35+ Gbps', icon: Zap },
+    { label: 'Response Improvement', value: '95%', icon: Clock },
+    { label: 'Market Growth', value: '16.5%', icon: BarChart3 },
   ]
 
   const competitiveAdvantages = [
@@ -251,6 +265,18 @@ function App() {
 
             {activeSection === 'competitive' && (
               <CompetitiveAnalysis />
+            )}
+
+            {activeSection === 'casestudies' && (
+              <CaseStudies />
+            )}
+
+            {activeSection === 'customers' && (
+              <CustomerBase />
+            )}
+
+            {activeSection === 'strategic' && (
+              <StrategicQA />
             )}
 
             {activeSection === 'interview' && (
@@ -919,5 +945,553 @@ function InterviewGuide() {
   )
 }
 
-export default App
+// Case Studies Component
+function CaseStudies() {
+  const caseStudies = [
+    {
+      title: "Education First - 95% Reduction in Incident Response Time",
+      company: "Education First",
+      industry: "Education Services",
+      employees: "40,000+",
+      improvement: "95%",
+      metric: "Incident Response Time",
+      before: "3 hours average",
+      after: "<10 minutes average",
+      challenge: "Manual data aggregation, scattered network logs, inefficient investigation",
+      solution: "Corelight Sensors with SIEM integration, centralized network evidence",
+      quote: "Before Corelight that task was very inefficient and in some cases impossible",
+      color: "green"
+    },
+    {
+      title: "DoD Performance Study - Enterprise-Scale Validation",
+      company: "U.S. Department of Defense",
+      industry: "Government",
+      employees: "Mission-critical",
+      improvement: "30,000 CPS",
+      metric: "Processing Capability",
+      before: "25% packet loss (open-source)",
+      after: "<2% packet loss (Corelight)",
+      challenge: "High-volume traffic processing, mission-critical reliability requirements",
+      solution: "Corelight AP 1000 Sensor with enterprise-grade performance",
+      quote: "Results demonstrated superior performance at government scale",
+      color: "blue"
+    },
+    {
+      title: "Energy Company SMB Investigation - Critical Incident Resolution",
+      company: "Major Energy Company",
+      industry: "Energy",
+      employees: "Global enterprise",
+      improvement: "Minutes",
+      metric: "Investigation Time",
+      before: "Hours/days for forensic analysis",
+      after: "Minutes using Zeek file ID",
+      challenge: "Unauthorized SMB file access during holiday period, limited visibility",
+      solution: "Corelight network logs with rich SMB protocol analysis",
+      quote: "If I didn't have this data I wouldn't sleep well at night",
+      color: "orange"
+    },
+    {
+      title: "Federal Agency DNS Analysis - 80% Time Reduction",
+      company: "Federal Government Agency",
+      industry: "Government",
+      employees: "Federal scale",
+      improvement: "80%",
+      metric: "DNS Analysis Time",
+      before: "20 minutes manual aggregation per event",
+      after: "Automated analysis with real-time data",
+      challenge: "Manual DNS data aggregation, limited east-west visibility",
+      solution: "Corelight Sensor with Splunk integration for DNS monitoring",
+      quote: "Full visibility into DNS data across the network",
+      color: "purple"
+    },
+    {
+      title: "Grand Canyon Education - Transparency Over Black-Box",
+      company: "Grand Canyon Education",
+      industry: "Higher Education",
+      employees: "Academic institution",
+      improvement: "Transparent",
+      metric: "Detection Logic",
+      before: "Black-box NDR without explanation",
+      after: "Clear, actionable detection logic",
+      challenge: "Lack of transparency in security alerts, slow response decisions",
+      solution: "Corelight's Open NDR Platform with evidence-based approach",
+      quote: "Swift, confident response decisions with clear network evidence",
+      color: "indigo"
+    }
+  ]
 
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <BarChart3 className="w-5 h-5" />
+            <span>Customer Success Case Studies</span>
+          </CardTitle>
+          <CardDescription>
+            Quantifiable results and business impact stories from Corelight implementations
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <div className="text-3xl font-bold text-green-700 dark:text-green-300">95%</div>
+              <div className="text-sm text-green-600 dark:text-green-400">Incident Response Improvement</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">Education First</div>
+            </div>
+            <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <div className="text-3xl font-bold text-blue-700 dark:text-blue-300">30K</div>
+              <div className="text-sm text-blue-600 dark:text-blue-400">CPS Processing</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">DoD Validation</div>
+            </div>
+            <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+              <div className="text-3xl font-bold text-purple-700 dark:text-purple-300">80%</div>
+              <div className="text-sm text-purple-600 dark:text-purple-400">Time Reduction</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">Federal Agency</div>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {caseStudies.map((study, index) => (
+              <Card key={index} className="border-l-4" style={{borderLeftColor: study.color === 'green' ? '#10b981' : study.color === 'blue' ? '#3b82f6' : study.color === 'orange' ? '#f97316' : study.color === 'purple' ? '#8b5cf6' : '#6366f1'}}>
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle className="text-lg">{study.title}</CardTitle>
+                      <CardDescription className="flex items-center space-x-4 mt-1">
+                        <span>{study.company}</span>
+                        <Badge variant="outline">{study.industry}</Badge>
+                        <span className="text-xs">{study.employees}</span>
+                      </CardDescription>
+                    </div>
+                    <div className="text-right">
+                      <div className={`text-2xl font-bold text-${study.color}-600`}>{study.improvement}</div>
+                      <div className={`text-sm text-${study.color}-500`}>{study.metric}</div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <h4 className="font-medium text-red-700 dark:text-red-300 mb-1">Before</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{study.before}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{study.challenge}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-green-700 dark:text-green-300 mb-1">After</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{study.after}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{study.solution}</p>
+                    </div>
+                  </div>
+                  <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded italic text-sm">
+                    "{study.quote}"
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <Card className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20">
+            <CardHeader>
+              <CardTitle className="text-blue-900 dark:text-blue-100">Interview Usage Tips</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-medium mb-2">For Technical Discussions:</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• Reference DoD's 30,000 CPS processing capability</li>
+                    <li>• Mention 95% improvement in incident response</li>
+                    <li>• Highlight government validation and scale</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium mb-2">For Customer Scenarios:</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• Energy sector: Critical incident resolution</li>
+                    <li>• Education: Transparency over black-box solutions</li>
+                    <li>• Government: Mission-critical reliability</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+// Customer Base Component
+function CustomerBase() {
+  const knownCustomers = [
+    { name: "GM Financial", location: "Texas (US Central)", type: "Financial Services", award: "Best Polaris Project Partner 2022" },
+    { name: "University of Texas at Austin", location: "Texas (US Central)", type: "Higher Education", award: "Best Polaris Project Partner 2021" },
+    { name: "Boston Children's Hospital", location: "Massachusetts", type: "Healthcare", award: "Best Commercial Enterprise 2022" },
+    { name: "Riot Games", location: "California", type: "Technology", award: "Best Early Adopter 2022" },
+    { name: "University at Buffalo", location: "New York", type: "Higher Education", award: "Best Higher Education 2021" },
+    { name: "Grand Canyon Education", location: "Arizona", type: "Higher Education", award: "Case Study Featured" },
+  ]
+
+  const customerSegments = [
+    {
+      segment: "Financial Services",
+      description: "Banks, credit unions, insurance companies",
+      useCases: ["Fraud detection", "Compliance monitoring", "Insider threat detection"],
+      examples: "GM Financial, major banks in Texas/Illinois/Ohio"
+    },
+    {
+      segment: "Higher Education", 
+      description: "Universities, research institutions, academic networks",
+      useCases: ["Research network security", "Student data protection", "Complex network monitoring"],
+      examples: "UT Austin, University at Buffalo, Grand Canyon Education"
+    },
+    {
+      segment: "Healthcare",
+      description: "Hospitals, health systems, medical research",
+      useCases: ["HIPAA compliance", "Medical device security", "Patient data protection"],
+      examples: "Boston Children's Hospital, healthcare systems"
+    },
+    {
+      segment: "Government",
+      description: "Federal agencies, state/local government, defense",
+      useCases: ["National security", "Critical infrastructure", "Compliance"],
+      examples: "Department of Defense, federal agencies"
+    },
+    {
+      segment: "Energy & Utilities",
+      description: "Oil & gas, electric utilities, critical infrastructure",
+      useCases: ["SCADA security", "Critical infrastructure protection", "Operational technology"],
+      examples: "Major energy companies, utility providers"
+    },
+    {
+      segment: "Technology",
+      description: "Software companies, gaming, tech services",
+      useCases: ["Intellectual property protection", "Development environment security", "Threat hunting"],
+      examples: "Riot Games, tech companies"
+    }
+  ]
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <Users className="w-5 h-5" />
+            <span>Customer Base & Market Presence</span>
+          </CardTitle>
+          <CardDescription>
+            Known customers, market segments, and US Central region prospects
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="known" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="known">Known Customers</TabsTrigger>
+              <TabsTrigger value="segments">Market Segments</TabsTrigger>
+              <TabsTrigger value="central">US Central Focus</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="known" className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {knownCustomers.map((customer, index) => (
+                  <Card key={index} className="border-l-4 border-blue-500">
+                    <CardContent className="pt-4">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="font-semibold">{customer.name}</h3>
+                        <Badge variant="outline" className="text-xs">{customer.type}</Badge>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                          <MapPin className="w-3 h-3 mr-1" />
+                          {customer.location}
+                        </div>
+                        <div className="flex items-center text-sm text-blue-600 dark:text-blue-400">
+                          <Award className="w-3 h-3 mr-1" />
+                          {customer.award}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              
+              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Customer Demographics</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                  <div>
+                    <div className="font-medium text-blue-800 dark:text-blue-200">73.77%</div>
+                    <div className="text-blue-600 dark:text-blue-400">US-based customers</div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-blue-800 dark:text-blue-200">Fortune 500</div>
+                    <div className="text-blue-600 dark:text-blue-400">Major enterprises</div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-blue-800 dark:text-blue-200">98%</div>
+                    <div className="text-blue-600 dark:text-blue-400">Recommendation rate</div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-blue-800 dark:text-blue-200">Multi-sector</div>
+                    <div className="text-blue-600 dark:text-blue-400">Diverse industries</div>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="segments" className="space-y-4">
+              <div className="space-y-4">
+                {customerSegments.map((segment, index) => (
+                  <Card key={index}>
+                    <CardHeader>
+                      <CardTitle className="text-lg">{segment.segment}</CardTitle>
+                      <CardDescription>{segment.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <h4 className="font-medium mb-2">Common Use Cases:</h4>
+                          <ul className="text-sm space-y-1">
+                            {segment.useCases.map((useCase, idx) => (
+                              <li key={idx} className="flex items-center">
+                                <CheckCircle className="w-3 h-3 text-green-600 mr-2" />
+                                {useCase}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-medium mb-2">Examples:</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">{segment.examples}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="central" className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg text-green-700 dark:text-green-300">Confirmed US Central Customers</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="p-3 border rounded">
+                        <div className="font-medium">GM Financial</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400">Texas - Major automotive finance company</div>
+                        <Badge variant="outline" className="mt-1">Apex Award Winner</Badge>
+                      </div>
+                      <div className="p-3 border rounded">
+                        <div className="font-medium">University of Texas at Austin</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400">Texas - Large research university</div>
+                        <Badge variant="outline" className="mt-1">Polaris Project Partner</Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg text-blue-700 dark:text-blue-300">Target Prospects</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="font-medium">Financial Services</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Major banks, credit unions, insurance companies in TX, IL, OH</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium">Energy Sector</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Oil & gas companies, utilities, pipeline operators</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium">Government</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">State agencies, municipal governments, federal facilities</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium">Healthcare</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Hospital systems, medical research institutions</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <Card className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20">
+                <CardHeader>
+                  <CardTitle className="text-green-900 dark:text-green-100">US Central Territory Advantages</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="font-medium mb-2">Market Characteristics:</h4>
+                      <ul className="text-sm space-y-1">
+                        <li>• Large enterprises with sophisticated security needs</li>
+                        <li>• Regulated industries requiring compliance</li>
+                        <li>• Energy sector with critical infrastructure</li>
+                        <li>• Major universities with complex networks</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-2">Success Metrics:</h4>
+                      <ul className="text-sm space-y-1">
+                        <li>• 20x faster incident response</li>
+                        <li>• 75% reduction in investigation time</li>
+                        <li>• 35% improvement in detection rates</li>
+                        <li>• 80% reduction in manual processes</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+// Strategic Q&A Component
+function StrategicQA() {
+  const strategicQuestions = [
+    {
+      category: "Company Strategy",
+      questions: [
+        {
+          q: "How does Corelight plan to leverage its Gartner Leader recognition?",
+          a: "Corelight leverages its 2025 Gartner Magic Quadrant Leader position through: (1) Market credibility with the 98% customer recommendation rate as validation, (2) Competitive differentiation highlighting evidence-based approach vs. black-box AI, (3) Sales enablement using third-party validation in enterprise deals, (4) Thought leadership through speaking engagements and industry content, (5) Partner ecosystem expansion with validated market position."
+        },
+        {
+          q: "What are the key strategic initiatives for market expansion?",
+          a: "Corelight's expansion strategy focuses on: (1) Segmentation targeting 'upper right quadrant' customers (large enterprises + risk-focused mindset), (2) Geographic expansion with 73.77% US customer base expanding internationally, (3) Vertical penetration in financial services, healthcare, energy, and government, (4) Product innovation with AI/ML enhancements while maintaining transparency, (5) Channel partnerships for broader market reach."
+        },
+        {
+          q: "How does the open-source community influence product development?",
+          a: "The Zeek community drives innovation through: (1) 25+ years of community development providing battle-tested foundation, (2) Continuous feedback from thousands of global users, (3) Community-contributed detection scripts and analytics, (4) Academic research integration from universities, (5) Transparency ensuring detection logic remains explainable vs. black-box competitors."
+        }
+      ]
+    },
+    {
+      category: "Role-Specific",
+      questions: [
+        {
+          q: "What are the most common technical objections Sales Engineers encounter?",
+          a: "Common objections include: (1) 'We already have SIEM/EDR' - Position as complementary network evidence layer, not replacement, (2) 'Open source is less secure' - Highlight enterprise hardening and professional support, (3) 'Too complex to deploy' - Reference 15-minute deployment vs. weeks for alternatives, (4) 'Performance concerns' - Use DoD case study showing 30,000 CPS at 16 Gbps, (5) 'Cost justification' - Demonstrate 95% operational improvements and ROI."
+        },
+        {
+          q: "How does Corelight support Sales Engineers in staying current with threats?",
+          a: "Corelight provides: (1) Regular threat intelligence briefings from security research team, (2) Community-driven detection updates through Zeek ecosystem, (3) Customer advisory boards sharing real-world threat scenarios, (4) Technical training on latest attack vectors and detection methods, (5) Integration with threat intelligence feeds and industry partnerships."
+        },
+        {
+          q: "What types of customers and use cases are most common?",
+          a: "Primary customers include: (1) Fortune 500 enterprises needing advanced threat detection, (2) Government agencies requiring mission-critical security, (3) Financial services with compliance and fraud detection needs, (4) Healthcare organizations protecting patient data, (5) Energy companies securing critical infrastructure. Common use cases: incident response acceleration, threat hunting, compliance monitoring, insider threat detection."
+        }
+      ]
+    },
+    {
+      category: "Team & Culture",
+      questions: [
+        {
+          q: "How do Sales Engineers collaborate with Product and Customer Success?",
+          a: "Collaboration includes: (1) Product feedback loops where Sales Engineers provide customer requirements to Product teams, (2) Joint customer calls with Customer Success for technical implementation guidance, (3) Feature prioritization input based on field feedback, (4) Customer advisory board participation, (5) Technical content creation for marketing and enablement."
+        },
+        {
+          q: "What professional development opportunities are available?",
+          a: "Development opportunities include: (1) Technical certifications in cybersecurity and networking, (2) Zeek community involvement and contribution opportunities, (3) Industry conference speaking and attendance, (4) Cross-functional project leadership, (5) Customer-facing technical training and workshops, (6) Internal technical deep-dives and knowledge sharing."
+        },
+        {
+          q: "How does Corelight measure Sales Engineering success?",
+          a: "Success metrics include: (1) Technical win rate in competitive evaluations, (2) Customer satisfaction scores from technical interactions, (3) Time to technical close in sales cycles, (4) Product feedback quality and implementation, (5) Customer reference development and advocacy, (6) Team collaboration effectiveness with Sales and Customer Success."
+        }
+      ]
+    }
+  ]
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <Lightbulb className="w-5 h-5" />
+            <span>Strategic Interview Questions & Responses</span>
+          </CardTitle>
+          <CardDescription>
+            Comprehensive answers to strategic questions about company direction, role specifics, and team culture
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="company" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="company">Company Strategy</TabsTrigger>
+              <TabsTrigger value="role">Role-Specific</TabsTrigger>
+              <TabsTrigger value="culture">Team & Culture</TabsTrigger>
+            </TabsList>
+            
+            {strategicQuestions.map((category, categoryIndex) => (
+              <TabsContent key={categoryIndex} value={category.category.toLowerCase().replace(' ', '')} className="space-y-4">
+                <div className="space-y-6">
+                  {category.questions.map((qa, index) => (
+                    <Card key={index} className="border-l-4 border-blue-500">
+                      <CardHeader>
+                        <CardTitle className="text-lg text-blue-900 dark:text-blue-100">
+                          {qa.q}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="prose prose-sm max-w-none dark:prose-invert">
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {qa.a}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
+          
+          <Card className="mt-6 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20">
+            <CardHeader>
+              <CardTitle className="text-yellow-900 dark:text-yellow-100">Interview Strategy Tips</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <h4 className="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Ask Follow-up Questions:</h4>
+                  <ul className="text-sm text-yellow-700 dark:text-yellow-300 space-y-1">
+                    <li>• "How do you see the NDR market evolving?"</li>
+                    <li>• "What's the biggest competitive challenge?"</li>
+                    <li>• "How does the team stay ahead of threats?"</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Show Strategic Thinking:</h4>
+                  <ul className="text-sm text-yellow-700 dark:text-yellow-300 space-y-1">
+                    <li>• Reference market trends and growth</li>
+                    <li>• Discuss competitive positioning</li>
+                    <li>• Connect technology to business value</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Demonstrate Preparation:</h4>
+                  <ul className="text-sm text-yellow-700 dark:text-yellow-300 space-y-1">
+                    <li>• Reference specific customer success stories</li>
+                    <li>• Mention recent company announcements</li>
+                    <li>• Show understanding of company culture</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+export default App
