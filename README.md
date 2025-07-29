@@ -6,6 +6,32 @@ A comprehensive, interactive website containing all the research and preparation
 
 The website is currently deployed at: [https://snywfinq.manus.space](https://snywfinq.manus.space)
 
+## 📚 Documentation Navigation
+
+This repository provides **two complementary ways** to access your interview preparation materials:
+
+### 🌐 **Interactive Website** (Recommended for Study Sessions)
+- **Live Demo**: [https://snywfinq.manus.space](https://snywfinq.manus.space)
+- **Dynamic Experience**: Tabbed navigation, responsive design, professional UI
+- **Perfect for**: Comprehensive study sessions and interactive exploration
+
+### 📚 **Static Documentation** (Perfect for Quick Reference)
+- **Documentation Hub**: [docs/README.md](docs/README.md)
+- **Direct Access**: Individual markdown files for specific topics
+- **Perfect for**: Quick reference, mobile reading, easy sharing
+
+### 📋 **Quick Access Links**
+| Topic | Documentation | Description |
+|-------|---------------|-------------|
+| **Overview** | [Executive Summary](docs/executive-summary.md) | Key highlights and strategy |
+| **Company** | [Company Research](docs/company-research.md) | History, leadership, funding |
+| **Customers** | [Customer Base](docs/customer-base.md) | Market segments and US Central focus |
+| **Technical** | [Technical Knowledge](docs/technical-knowledge.md) | Platform architecture and capabilities |
+| **Success Stories** | [Case Studies](docs/case-studies.md) | Quantifiable customer results |
+| **Competition** | [Competitive Analysis](docs/competitive-analysis.md) | Market positioning strategies |
+| **Strategy** | [Strategic Q&A](docs/strategic-qa.md) | Interview question responses |
+| **Preparation** | [Interview Guide](docs/interview-guide.md) | Success tips and strategies |
+
 ## 📋 Overview
 
 This website contains extensive research and preparation materials including:
